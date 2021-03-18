@@ -1,9 +1,14 @@
 .head {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 74px 0;
     background-color: #424242;
+
+    &-wrap {
+        display: flex;
+        align-items: center;
+        max-width: 800px;
+        padding-left: 146px;
+        margin: auto;
+    }
 
     &-form {
         margin-left: 97px;
@@ -12,13 +17,20 @@
     &-action {
         margin-left: 53px;
     }
+
+    &-result {
+        margin-left: 53px;
+    }
+
+    .hidden {
+        display: none;
+    }
 }
 
 .btn {
     display: block;
-    padding: 48px 24px;
+    padding: 50px 26px;
     font-size: 24px;
-    line-height: 1;
     color: #424242;
     border-radius: 50%;
     background-color: #FFD366;
@@ -41,7 +53,7 @@
     }
 
     &-input {
-        margin-top: 4px;
+        margin-top: 7px;
     }
 
     &+& {
@@ -52,9 +64,8 @@
 .textBox {
     box-sizing: border-box;
     width: 250px;
-    padding: 2px 16px;
+    padding: 4px 14px;
     font-size: 24px;
-    line-height: 1;
     color: #fff;
     border: 2px solid #FFD366;
     border-radius: 10px;
@@ -64,4 +75,126 @@
     &::placeholder {
         color: rgba(255, 255, 255, 0.50);
     }
+}
+
+.result {
+    display: flex;
+    align-items: center;
+
+    &-circle {
+        position: relative;
+        box-sizing: border-box;
+        width: 124px;
+        height: 124px;
+        color: #86D73F;
+        text-align: center;
+        border-radius: 50%;
+        border: 6px solid #86D73F;
+    }
+
+    &-num {
+        font-size: 32px;
+        margin-top: 34px;
+    }
+
+    &-unit {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    &-action {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    &-text {
+        font-size: 32px;
+        margin-left: 18px;
+        color: #86D73F;
+    }
+
+    &.light & {
+        &-circle {
+            color: #31BAF9;
+            border-color: #31BAF9;
+        }
+
+        &-text {
+            color: #31BAF9;
+        }
+    }
+
+    &.heavy & {
+        &-circle {
+            color: #FF982D;
+            border-color: #FF982D;
+        }
+
+        &-text {
+            color: #FF982D;
+        }
+    }
+
+    &.mild & {
+        &-circle {
+            color: #FF6C03;
+            border-color: #FF6C03;
+        }
+
+        &-text {
+            color: #FF6C03;
+        }
+    }
+
+    &.moderate & {
+        &-circle {
+            color: #FF6C03;
+            border-color: #FF6C03;
+        }
+
+        &-text {
+            color: #FF6C03;
+        }
+    }
+
+    &.severe & {
+        &-circle {
+            color: #FF1200;
+            border-color: #FF1200;
+        }
+
+        &-text {
+            color: #FF1200;
+        }
+    }
+}
+
+.loopBtn {
+    display: block;
+    padding: 5px 8px;
+    line-height: 0;
+    border-radius: 50%;
+    border: 3px solid #424242;
+    background-color: #86D73F;
+}
+
+.light .loopBtn {
+    background-color: #31BAF9;
+}
+
+.heavy .loopBtn {
+    background-color: #FF982D;
+}
+
+.mild .loopBtn {
+    background-color: #FF6C03;
+}
+
+.moderate .loopBtn {
+    background-color: #FF6C03;
+}
+
+.severe .loopBtn {
+    background-color: #FF1200;
 }

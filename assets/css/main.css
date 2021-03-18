@@ -2,7 +2,7 @@ html,
 body {
   font-family: "Microsoft JhengHei", "PingFangTC-Regular", Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1;
   color: #333;
 }
 
@@ -18,11 +18,15 @@ ul {
 }
 
 .head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 74px 0;
   background-color: #424242;
+}
+.head-wrap {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  padding-left: 146px;
+  margin: auto;
 }
 .head-form {
   margin-left: 97px;
@@ -30,12 +34,17 @@ ul {
 .head-action {
   margin-left: 53px;
 }
+.head-result {
+  margin-left: 53px;
+}
+.head .hidden {
+  display: none;
+}
 
 .btn {
   display: block;
-  padding: 48px 24px;
+  padding: 50px 26px;
   font-size: 24px;
-  line-height: 1;
   color: #424242;
   border-radius: 50%;
   background-color: #FFD366;
@@ -54,7 +63,7 @@ ul {
   color: #FFD366;
 }
 .form-input {
-  margin-top: 4px;
+  margin-top: 7px;
 }
 .form + .form {
   margin-top: 23px;
@@ -63,9 +72,8 @@ ul {
 .textBox {
   box-sizing: border-box;
   width: 250px;
-  padding: 2px 16px;
+  padding: 4px 14px;
   font-size: 24px;
-  line-height: 1;
   color: #fff;
   border: 2px solid #FFD366;
   border-radius: 10px;
@@ -74,6 +82,183 @@ ul {
 }
 .textBox::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.result {
+  display: flex;
+  align-items: center;
+}
+.result-circle {
+  position: relative;
+  box-sizing: border-box;
+  width: 124px;
+  height: 124px;
+  color: #86D73F;
+  text-align: center;
+  border-radius: 50%;
+  border: 6px solid #86D73F;
+}
+.result-num {
+  font-size: 32px;
+  margin-top: 34px;
+}
+.result-unit {
+  font-size: 14px;
+  margin-top: 4px;
+}
+.result-action {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.result-text {
+  font-size: 32px;
+  margin-left: 18px;
+  color: #86D73F;
+}
+.result.light .result-circle {
+  color: #31BAF9;
+  border-color: #31BAF9;
+}
+.result.light .result-text {
+  color: #31BAF9;
+}
+.result.heavy .result-circle {
+  color: #FF982D;
+  border-color: #FF982D;
+}
+.result.heavy .result-text {
+  color: #FF982D;
+}
+.result.mild .result-circle {
+  color: #FF6C03;
+  border-color: #FF6C03;
+}
+.result.mild .result-text {
+  color: #FF6C03;
+}
+.result.moderate .result-circle {
+  color: #FF6C03;
+  border-color: #FF6C03;
+}
+.result.moderate .result-text {
+  color: #FF6C03;
+}
+.result.severe .result-circle {
+  color: #FF1200;
+  border-color: #FF1200;
+}
+.result.severe .result-text {
+  color: #FF1200;
+}
+
+.loopBtn {
+  display: block;
+  padding: 5px 8px;
+  line-height: 0;
+  border-radius: 50%;
+  border: 3px solid #424242;
+  background-color: #86D73F;
+}
+
+.light .loopBtn {
+  background-color: #31BAF9;
+}
+
+.heavy .loopBtn {
+  background-color: #FF982D;
+}
+
+.mild .loopBtn {
+  background-color: #FF6C03;
+}
+
+.moderate .loopBtn {
+  background-color: #FF6C03;
+}
+
+.severe .loopBtn {
+  background-color: #FF1200;
+}
+
+.main {
+  min-height: calc(100vh - 299px - 91px);
+  background-color: #f7f7f7;
+}
+.main-wrap {
+  box-sizing: border-box;
+  max-width: 656px;
+  margin: auto;
+  padding: 48px 16px 74px 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #424242;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.record {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px 11px 21px 19px;
+  font-size: 20px;
+  background-color: #fff;
+}
+.record::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 7px;
+  height: 100%;
+  background-color: #86D73F;
+  box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
+}
+.record + .record {
+  margin-top: 16px;
+}
+.record-status {
+  width: 110px;
+}
+.record-item {
+  display: flex;
+  align-items: center;
+  width: 110px;
+}
+.record-title, .record-date {
+  font-size: 12px;
+}
+.record-num {
+  margin-left: 4px;
+}
+.record-date {
+  width: 110px;
+  text-align: right;
+}
+.record.light::before {
+  background-color: #31BAF9;
+  box-shadow: 2px 0 3px 0 rgba(49, 186, 249, 0.29);
+}
+.record.heavy::before {
+  background-color: #FF982D;
+  box-shadow: 2px 0 3px 0 rgba(255, 152, 45, 0.29);
+}
+.record.mild::before {
+  background-color: #FF6C03;
+  box-shadow: 2px 0 3px 0 rgba(255, 108, 3, 0.29);
+}
+.record.moderate::before {
+  background-color: #FF6C03;
+  box-shadow: 2px 0 3px 0 rgba(255, 108, 3, 0.29);
+}
+.record.severe::before {
+  background-color: #FF1200;
+  box-shadow: 2px 0 3px 0 rgba(255, 18, 0, 0.29);
 }
 
 .footer {

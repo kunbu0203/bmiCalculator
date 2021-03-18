@@ -1,0 +1,93 @@
+.main {
+    min-height: calc(100vh - 299px - 91px);
+    background-color: #f7f7f7;
+
+    &-wrap {
+        box-sizing: border-box;
+        max-width: 656px;
+        margin: auto;
+        padding: 48px 16px 74px 16px;
+    }
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #424242;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.record {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 21px 11px 21px 19px;
+    font-size: 20px;
+    background-color: #fff;
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 7px;
+        height: 100%;
+        background-color: #86D73F;
+        box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
+    }
+
+    &+& {
+        margin-top: 16px;
+    }
+
+    &-status {
+        width: 110px;
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        width: 110px;
+    }
+
+    &-title,
+    &-date {
+        font-size: 12px;
+    }
+
+    &-num {
+        margin-left: 4px;
+    }
+
+    &-date {
+        width: 110px;
+        text-align: right;
+    }
+
+    &.light::before {
+        background-color: #31BAF9;
+        box-shadow: 2px 0 3px 0 rgba(49, 186, 249, 0.29);
+    }
+
+    &.heavy::before {
+        background-color: #FF982D;
+        box-shadow: 2px 0 3px 0 rgba(255, 152, 45, 0.29);
+    }
+
+    &.mild::before {
+        background-color: #FF6C03;
+        box-shadow: 2px 0 3px 0 rgba(255, 108, 3, 0.29);
+    }
+
+    &.moderate::before {
+        background-color: #FF6C03;
+        box-shadow: 2px 0 3px 0 rgba(255, 108, 3, 0.29);
+    }
+
+    &.severe::before {
+        background-color: #FF1200;
+        box-shadow: 2px 0 3px 0 rgba(255, 18, 0, 0.29);
+    }
+}
