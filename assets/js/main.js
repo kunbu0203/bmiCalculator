@@ -5,7 +5,8 @@ var result = document.querySelector('.result'),
     resultNum = document.querySelector('.result-num'),
     resultText = document.querySelector('.result-text');
 var loopBtn = document.querySelector('.loopBtn');
-var datas = [];
+var record = document.querySelector('.record');
+var recordData = JSON.parse(localStorage.getItem('bmi')) || [];
 
 btn.addEventListener('click', bmiCalculate, false);
 
@@ -53,17 +54,18 @@ function bmiCalculate(){
         data.status = '理想';
     }
 
-    putData(data);
+    putDataToHtml(data);
     setData(data);
+    updateRecord();
 }
 
 function setData(data) {
-    datas.push(data);
-    var strData = JSON.stringify(datas);
+    recordData.push(data);
+    var strData = JSON.stringify(recordData);
     localStorage.setItem('bmi', strData);
 }
 
-function putData(data) {
+function putDataToHtml(data) {
     result.className = 'result';
     if (data.statusClass){
         result.classList.add(data.statusClass);
@@ -71,3 +73,30 @@ function putData(data) {
     resultNum.textContent = data.bmi;
     resultText.textContent = data.status;
 }
+
+function updateRecord() {
+    var contentBox = document.querySelector('.content');
+    var date = new Date()
+
+    contentBox.innerHTML = '';
+
+    if (recordData) {
+        for (var i = recordData.length - 1; i >= 0; i--) {
+            var recordClone = record.cloneNode(true);
+            if (recordData[i].statusClass) {
+                recordClone.classList.add(recordData[i].statusClass);
+            }
+            recordClone.querySelector('.record-status').textContent = recordData[i].status;
+            recordClone.querySelector('#recordBmi').textContent = recordData[i].bmi;
+            recordClone.querySelector('#recordWeight').textContent = recordData[i].weight;
+            recordClone.querySelector('#recordHeight').textContent = recordData[i].height;
+            recordClone.querySelector('.month').textContent = (date.getMonth()+1).toString().padStart(2, '0');
+            recordClone.querySelector('.day').textContent = date.getDate();
+            recordClone.querySelector('.year').textContent = date.getFullYear();
+
+            contentBox.appendChild(recordClone);
+        }
+    }
+}
+
+window.onload = updateRecord();

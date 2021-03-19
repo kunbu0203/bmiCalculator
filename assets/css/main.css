@@ -31,14 +31,25 @@ ul {
 .head-form {
   margin-left: 97px;
 }
-.head-action {
-  margin-left: 53px;
-}
-.head-result {
+.head-action, .head-result {
   margin-left: 53px;
 }
 .head .hidden {
   display: none;
+}
+@media screen and (max-width: 1023px) {
+  .head-wrap {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .head-form {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .head-action, .head-result {
+    margin-top: 32px;
+    margin-left: 0;
+  }
 }
 
 .btn {
@@ -224,6 +235,7 @@ ul {
 }
 .record-status {
   width: 110px;
+  font-weight: bold;
 }
 .record-item {
   display: flex;
@@ -259,6 +271,24 @@ ul {
 .record.severe::before {
   background-color: #FF1200;
   box-shadow: 2px 0 3px 0 rgba(255, 18, 0, 0.29);
+}
+@media screen and (max-width: 1023px) {
+  .record {
+    flex-wrap: wrap;
+  }
+  .record-status, .record-date {
+    width: 100%;
+  }
+  .record-item {
+    display: block;
+    width: auto;
+    margin: 12px 0;
+    flex: 1;
+  }
+  .record-num {
+    margin-top: 4px;
+    margin-left: 0;
+  }
 }
 
 .footer {

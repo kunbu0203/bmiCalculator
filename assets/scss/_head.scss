@@ -14,16 +14,31 @@
         margin-left: 97px;
     }
 
-    &-action {
-        margin-left: 53px;
-    }
-
+    &-action,
     &-result {
         margin-left: 53px;
     }
 
     .hidden {
         display: none;
+    }
+
+    @media screen and (max-width: 1023px) {
+        &-wrap {
+            flex-direction: column;
+            padding-left: 0;
+        }
+
+        &-form {
+            margin-top: 10px;
+            margin-left: 0;
+        }
+
+        &-action,
+        &-result {
+            margin-top: 32px;
+            margin-left: 0;
+        }
     }
 }
 
