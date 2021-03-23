@@ -13,26 +13,18 @@
 <body>
     <div class="head">
         <div class="head-wrap">
-            <div class="head-logo">
-                <img src="./assets/images/BMICLogo.png" alt="BMICLogo">
-            </div>
+            <h1 class="head-logo">
+                <img src="./assets/images/BMICLogo.png" alt="BMI 計算機 Logo">
+            </h1>
             <div class="head-form">
-                <div class="form">
-                    <div class="form-title">
-                        身高 cm
-                    </div>
-                    <div class="form-input">
-                        <input type="text" class="textBox" id="inputHeight" placeholder="請輸入身高">
-                    </div>
-                </div>
-                <div class="form">
-                    <div class="form-title">
-                        體重 kg
-                    </div>
-                    <div class="form-input">
-                        <input type="text" class="textBox" id="inputWeight" placeholder="請輸入體重">
-                    </div>
-                </div>
+                <form class="form">
+                    <label class="form-title" for="inputHeight">身高 cm</label>
+                    <input type="text" class="form-input textBox" id="inputHeight" placeholder="請輸入身高">
+                </form>
+                <form class="form">
+                    <label class="form-title" for="inputWeight">體重 kg</label>
+                    <input type="text" class="form-input textBox" id="inputWeight" placeholder="請輸入體重">
+                </form>
             </div>
             <div class="head-action">
                 <button class="btn">看結果</button>
