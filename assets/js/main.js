@@ -1,3 +1,5 @@
+var inputHeight = document.querySelector('#inputHeight'),
+    inputWeight = document.querySelector('#inputWeight');
 var btn = document.querySelector('.btn'),
     headAction = document.querySelector('.head-action'),
     headResult = document.querySelector('.head-result');
@@ -10,28 +12,34 @@ var recordData = JSON.parse(localStorage.getItem('bmi')) || [];
 
 btn.addEventListener('click', bmiCalculate, false);
 
-loopBtn.addEventListener('click', bmiCalculate, false);
+loopBtn.addEventListener('click', function (){
+    inputHeight.value = '';
+    inputWeight.value = '';
+
+    headResult.classList.add('hidden');
+    headAction.classList.remove('hidden');
+}, false);
 
 function bmiCalculate(){
-    var inputHeight = Number(document.querySelector('#inputHeight').value),
-        inputWeight = Number(document.querySelector('#inputWeight').value);
-    if (inputHeight === 0 || inputWeight === 0){
+    var height = Number(inputHeight.value),
+        weight = Number(inputWeight.value);
+    if (height === 0 || weight === 0){
         return;
     }
     var data = {
         status: '',
         statusClass: '',
         bmi : bmi,
-        weight : inputWeight,
-        height : inputHeight,
+        weight : weight,
+        height : height,
     };
 
     headAction.classList.add('hidden');
     headResult.classList.remove('hidden');
 
     // 計算BMI
-    inputHeight = inputHeight / 100;
-    var bmi = inputWeight / (inputHeight ** 2);
+    height = height / 100;
+    var bmi = weight / (height ** 2);
     data.bmi = bmi.toFixed(2);
 
     // 狀態與樣式class
