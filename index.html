@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI 計算機1</title>
+    <title>BMI 計算機</title>
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
@@ -19,11 +19,13 @@
             <div class="head-form">
                 <form class="form">
                     <label class="form-title" for="inputHeight">身高 cm</label>
-                    <input type="text" class="form-input textBox" id="inputHeight" placeholder="請輸入身高">
+                    <input type="number" class="form-input textBox" id="inputHeight" placeholder="請輸入身高">
+                    <p class="form-error">*請輸入身高</p>
                 </form>
                 <form class="form">
                     <label class="form-title" for="inputWeight">體重 kg</label>
-                    <input type="text" class="form-input textBox" id="inputWeight" placeholder="請輸入體重">
+                    <input type="number" class="form-input textBox" id="inputWeight" placeholder="請輸入體重">
+                    <p class="form-error">*請輸入體重</p>
                 </form>
             </div>
             <div class="head-action">

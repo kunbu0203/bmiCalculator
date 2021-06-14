@@ -1,4 +1,5 @@
-var inputHeight = document.querySelector('#inputHeight'),
+var input = document.querySelectorAll('.form-input'),
+    inputHeight = document.querySelector('#inputHeight'),
     inputWeight = document.querySelector('#inputWeight');
 var btn = document.querySelector('.btn'),
     headAction = document.querySelector('.head-action'),
@@ -12,7 +13,7 @@ var recordData = JSON.parse(localStorage.getItem('bmi')) || [];
 
 btn.addEventListener('click', bmiCalculate, false);
 
-loopBtn.addEventListener('click', function (){
+loopBtn.addEventListener('click', function() {
     inputHeight.value = '';
     inputWeight.value = '';
 
@@ -20,18 +21,27 @@ loopBtn.addEventListener('click', function (){
     headAction.classList.remove('hidden');
 }, false);
 
-function bmiCalculate(){
+function bmiCalculate() {
     var height = Number(inputHeight.value),
         weight = Number(inputWeight.value);
-    if (height === 0 || weight === 0){
+
+    input.forEach(function(item) {
+        if (Number(item.value) === 0) {
+            item.parentNode.classList.add('error');
+        } else {
+            item.parentNode.classList.remove('error');
+        }
+    });
+    if (height === 0 || weight === 0) {
         return;
     }
+
     var data = {
         status: '',
         statusClass: '',
-        bmi : bmi,
-        weight : weight,
-        height : height,
+        bmi: bmi,
+        weight: weight,
+        height: height,
     };
 
     headAction.classList.add('hidden');
@@ -43,19 +53,19 @@ function bmiCalculate(){
     data.bmi = bmi.toFixed(2);
 
     // 狀態與樣式class
-    if (bmi <= 18.5 ){
+    if (bmi <= 18.5) {
         data.status = '過輕';
         data.statusClass = 'light';
-    } else if (bmi > 25 && bmi <= 30){
+    } else if (bmi > 25 && bmi <= 30) {
         data.status = '過重';
         data.statusClass = 'heavy';
-    } else if (bmi > 30 && bmi <= 35){
+    } else if (bmi > 30 && bmi <= 35) {
         data.status = '輕度肥胖';
         data.statusClass = 'mild';
-    } else if (bmi > 35 && bmi <= 40){
+    } else if (bmi > 35 && bmi <= 40) {
         data.status = '中度肥胖';
         data.statusClass = 'moderate';
-    } else if (bmi > 40){
+    } else if (bmi > 40) {
         data.status = '重度肥胖';
         data.statusClass = 'severe';
     } else {
@@ -75,7 +85,7 @@ function setData(data) {
 
 function putDataToHtml(data) {
     result.className = 'result';
-    if (data.statusClass){
+    if (data.statusClass) {
         result.classList.add(data.statusClass);
     }
     resultNum.textContent = data.bmi;
@@ -98,7 +108,7 @@ function updateRecord() {
             recordClone.querySelector('#recordBmi').textContent = recordData[i].bmi;
             recordClone.querySelector('#recordWeight').textContent = recordData[i].weight;
             recordClone.querySelector('#recordHeight').textContent = recordData[i].height;
-            recordClone.querySelector('.month').textContent = (date.getMonth()+1).toString().padStart(2, '0');
+            recordClone.querySelector('.month').textContent = (date.getMonth() + 1).toString().padStart(2, '0');
             recordClone.querySelector('.day').textContent = date.getDate();
             recordClone.querySelector('.year').textContent = date.getFullYear();
 
